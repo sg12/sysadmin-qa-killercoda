@@ -69,6 +69,7 @@ docker create -p 8080:8080 --name my-app my-script
 sudo systemctl daemon-reload
 sudo systemctl enable my-app
 sudo systemctl start my-app
+sleep 3   # systemctl start возвращается сразу, как только форкнул docker start -a — python3 http.server внутри контейнера ещё не обязательно поднялся
 
 echo "=== bootstrap.sh done ==="
 sudo nginx -t
